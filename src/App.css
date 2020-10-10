@@ -1,0 +1,24 @@
+table {
+  overflow: hidden;
+}
+
+tr:not(:first-child):hover {
+  background-color: rgba(230, 80, 0, 0.2);
+}
+
+td,
+th {
+  position: relative;
+}
+
+td:hover::after,
+td:hover::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(230, 80, 0, 0.2);
+  left: 0;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  z-index: -1;
+}
