@@ -2,7 +2,17 @@
   "name": "phasmophobia_ghosts",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
+  "author": {
+    "email": "mattboulanger@fastmail.com",
+    "name": "Celeo"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "tsc --noEmit && eslint src/**/*.ts && prettier --check src",
+    "lint:fix": "eslint --fix src/**/*.ts && prettier -w src"
+  },
+  "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -10,19 +20,26 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "eslint-config-prettier": "^6.12.0",
+    "prettier": "^2.1.2",
+    "pullstate": "^1.19.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
+    "surge": "^0.21.6",
     "typescript": "~3.7.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
   "eslintConfig": {
-    "extends": "react-app"
+    "root": true,
+    "extends": [
+      "react-app",
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "ignorePatterns": [
+      "buikd/**/*"
+    ]
   },
   "browserslist": {
     "production": [
