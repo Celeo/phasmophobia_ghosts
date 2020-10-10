@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { Ghost, GHOSTS } from "./data";
 import "./App.css";
 
 export const App = (): React.ReactElement => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [ghosts, setGhosts] = useState<Array<Ghost>>(GHOSTS);
+
   return (
     <div className="large-container">
       <table className="centered">
@@ -17,114 +21,19 @@ export const App = (): React.ReactElement => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Spirit</td>
-            <td>X</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Wraith</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>X</td>
-          </tr>
-          <tr>
-            <td>Phantom</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>X</td>
-            <td>X</td>
-            <td>X</td>
-          </tr>
-          <tr>
-            <td>Poltergeist</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Banshee</td>
-            <td></td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td>X</td>
-            <td>X</td>
-          </tr>
-          <tr>
-            <td>Jinn</td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Mare</td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td>X</td>
-            <td></td>
-            <td>X</td>
-          </tr>
-          <tr>
-            <td>Revenant</td>
-            <td></td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td>X</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Shade</td>
-            <td></td>
-            <td></td>
-            <td>X</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Demon</td>
-            <td>X</td>
-            <td></td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td>X</td>
-          </tr>
-          <tr>
-            <td>Yurei</td>
-            <td></td>
-            <td></td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td>X</td>
-          </tr>
-          <tr>
-            <td>Oni</td>
-            <td>X</td>
-            <td></td>
-            <td>X</td>
-            <td></td>
-            <td>X</td>
-            <td></td>
-          </tr>
+          {ghosts.map((ghost) => {
+            return (
+              <tr key={ghost.name}>
+                <td>{ghost.name ? "X" : ""}</td>
+                <td>{ghost.evidence.box ? "X" : ""}</td>
+                <td>{ghost.evidence.fingerprints ? "X" : ""}</td>
+                <td>{ghost.evidence.writing ? "X" : ""}</td>
+                <td>{ghost.evidence.orbs ? "X" : ""}</td>
+                <td>{ghost.evidence.emf ? "X" : ""}</td>
+                <td>{ghost.evidence.freezing ? "X" : ""}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
