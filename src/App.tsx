@@ -24,7 +24,7 @@ export const App = (): React.ReactElement => {
           {ghosts.map((ghost) => {
             return (
               <tr key={ghost.name}>
-                <td>{ghost.name ? "X" : ""}</td>
+                <td>{ghost.name }</td>
                 <td>{ghost.evidence.box ? "X" : ""}</td>
                 <td>{ghost.evidence.fingerprints ? "X" : ""}</td>
                 <td>{ghost.evidence.writing ? "X" : ""}</td>
