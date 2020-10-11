@@ -11,8 +11,8 @@ th {
   position: relative;
 }
 
-td:hover::after,
-td:hover::after {
+td:not(:first-child):hover::after,
+td:not(:first-child):hover::after {
   content: "";
   position: absolute;
   background-color: rgba(230, 80, 0, 0.2);
@@ -21,4 +21,16 @@ td:hover::after {
   height: 10000px;
   width: 100%;
   z-index: -1;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.column-selected {
+  color: #388e3c;
+}
+
+.row-crossed-out {
+  color: #424242;
 }

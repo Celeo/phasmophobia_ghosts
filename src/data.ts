@@ -1,3 +1,12 @@
+export enum Column {
+  box = "Spirit Box",
+  fingerprints = "Fingerprints",
+  writing = "Book writing",
+  orbs = "Ghost Orbs",
+  emf = "EMF 5",
+  freezing = "Freezing",
+}
+
 export interface GhostEvidence {
   box: boolean;
   fingerprints: boolean;
@@ -146,3 +155,50 @@ export const GHOSTS: Array<Ghost> = [
     },
   },
 ];
+
+export const ghostMatches = (
+  ghost: Ghost,
+  evidence: Array<string>
+): boolean => {
+  for (const e of evidence) {
+    switch (e) {
+      case "box": {
+        if (!ghost.evidence.box) {
+          return false;
+        }
+        break;
+      }
+      case "fingerprints": {
+        if (!ghost.evidence.fingerprints) {
+          return false;
+        }
+        break;
+      }
+      case "writing": {
+        if (!ghost.evidence.writing) {
+          return false;
+        }
+        break;
+      }
+      case "orbs": {
+        if (!ghost.evidence.orbs) {
+          return false;
+        }
+        break;
+      }
+      case "emf": {
+        if (!ghost.evidence.emf) {
+          return false;
+        }
+        break;
+      }
+      case "freezing": {
+        if (!ghost.evidence.freezing) {
+          return false;
+        }
+        break;
+      }
+    }
+  }
+  return true;
+};
