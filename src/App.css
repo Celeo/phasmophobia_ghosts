@@ -2,6 +2,10 @@ table {
   overflow: hidden;
 }
 
+thead > tr {
+  border-bottom: 1px solid white;
+}
+
 thead > tr:hover {
   background-color: rgba(0, 0, 0, 0);
 }
