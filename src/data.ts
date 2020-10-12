@@ -1,11 +1,16 @@
-export enum Column {
-  box = "Spirit Box",
-  fingerprints = "Fingerprints",
-  writing = "Book writing",
-  orbs = "Ghost Orbs",
-  emf = "EMF 5",
-  freezing = "Freezing",
+export interface EvidenceDescription {
+  short: string;
+  long: string;
 }
+
+export const ALL_EVIDENCE: Array<EvidenceDescription> = [
+  { short: "box", long: "Spirit Box" },
+  { short: "fingerprints", long: "Fingerprints" },
+  { short: "writing", long: "Book writing" },
+  { short: "orbs", long: "Ghost Orbs" },
+  { short: "emf", long: "EMF 5" },
+  { short: "freezing", long: "Freezing" },
+];
 
 export interface GhostEvidence {
   box: boolean;
@@ -18,12 +23,15 @@ export interface GhostEvidence {
 
 export interface Ghost {
   name: string;
+  description: string;
   evidence: GhostEvidence;
 }
 
 export const GHOSTS: Array<Ghost> = [
   {
     name: "Spirit",
+    description:
+      "Smudge Sticks will prevent it from attacking for a long time.",
     evidence: {
       box: true,
       fingerprints: true,
@@ -35,6 +43,8 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Wraith",
+    description:
+      "Can fly, including through walls/lockers/doors. Rarely touches the ground. Have a toxic reaction to salt.",
     evidence: {
       box: true,
       fingerprints: true,
@@ -46,6 +56,8 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Phantom",
+    description:
+      "Looking at it will cause large sanity loss. Taking a photo of it will cause it to temporarily disappear.",
     evidence: {
       box: false,
       fingerprints: false,
@@ -57,6 +69,7 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Poltergeist",
+    description: "Interacts with many items at a time.",
     evidence: {
       box: true,
       fingerprints: true,
@@ -68,6 +81,8 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Banshee",
+    description:
+      "Targets a single person at a time. Will be less aggressive near Crucifixes.",
     evidence: {
       box: false,
       fingerprints: true,
@@ -79,6 +94,8 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Jinn",
+    description:
+      "Territorial & fast. Faster when target is far away, except when the location's power supply is off.",
     evidence: {
       box: true,
       fingerprints: false,
@@ -90,6 +107,7 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Mare",
+    description: "Has an increased chance to attack in the dark.",
     evidence: {
       box: true,
       fingerprints: false,
@@ -101,6 +119,8 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Revenant",
+    description:
+      "Slow, but very fast when hunting. Slows greatly when being hid from.",
     evidence: {
       box: false,
       fingerprints: true,
@@ -112,6 +132,8 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Shade",
+    description:
+      "Very shy. Will not start a hunt when multiple people are nearby.",
     evidence: {
       box: false,
       fingerprints: false,
@@ -123,6 +145,8 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Demon",
+    description:
+      "Aggressive, and attack more often than other ghosts. Asking a successful question via Ouija board will not lower sanity.",
     evidence: {
       box: true,
       fingerprints: false,
@@ -134,6 +158,8 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Yurei",
+    description:
+      "Drains peoples' sanity faster than other ghosts. Smudging its room prevents roaming for a long time.",
     evidence: {
       box: false,
       fingerprints: false,
@@ -145,6 +171,8 @@ export const GHOSTS: Array<Ghost> = [
   },
   {
     name: "Oni",
+    description:
+      "More active when around multiple people. Can rapidly move items.2",
     evidence: {
       box: true,
       fingerprints: false,

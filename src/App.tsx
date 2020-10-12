@@ -1,5 +1,5 @@
 import React from "react";
-import { Column, GHOSTS, ghostMatches } from "./data";
+import { ALL_EVIDENCE, GHOSTS, ghostMatches } from "./data";
 import "./App.css";
 
 export const App = (): React.ReactElement => {
@@ -19,15 +19,17 @@ export const App = (): React.ReactElement => {
         <thead>
           <tr>
             <th>Type</th>
-            {Object.entries(Column).map(([short, long]: [string, string]) => (
+            {ALL_EVIDENCE.map((description) => (
               <th
-                key={short}
+                key={description.short}
                 className={`cursor-pointer ${
-                  columns.indexOf(short) !== -1 ? "column-selected" : ""
+                  columns.indexOf(description.short) !== -1
+                    ? "column-selected"
+                    : ""
                 }`}
-                onClick={(): void => toggleColumn(short)}
+                onClick={(): void => toggleColumn(description.short)}
               >
-                {long}
+                {description.long}
               </th>
             ))}
           </tr>
@@ -35,7 +37,7 @@ export const App = (): React.ReactElement => {
         <tbody>
           {GHOSTS.map((ghost) => {
             return (
-              <tr key={ghost.name}>
+              <tr key={ghost.name} title={ghost.description}>
                 <td
                   className={
                     !ghostMatches(ghost, columns) ? "row-crossed-out" : ""
@@ -96,7 +98,8 @@ export const App = (): React.ReactElement => {
       <p>
         <strong>Instructions</strong>: Mouse over tiles to highlight columns and
         rows. Click a piece of evidence along the top to highlight that evidence
-        and show which ghosts match.
+        and show which ghosts match. Mouse over a ghost type to get a brief on
+        its behavior.
       </p>
     </div>
   );
