@@ -11,8 +11,8 @@
     "build": "react-scripts build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "tsc --noEmit && eslint src/**/*.ts && prettier --check src",
-    "lint:fix": "eslint --fix src/**/*.ts && prettier -w src"
+    "lint": "tsc --noEmit && eslint src/**/*.{ts,tsx} tests/**/*.{ts,tsx} && prettier --check {src,tests}",
+    "lint:fix": "eslint --fix src/**/*.{ts,tsx} tests/**/*.{ts,tsx} && prettier -w {src,tests}"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.10.4",

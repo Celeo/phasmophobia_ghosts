@@ -40,7 +40,9 @@ export const App = (): React.ReactElement => {
               <tr key={ghost.name} title={ghost.description}>
                 <td
                   className={
-                    !ghostMatches(ghost, columns) ? "row-crossed-out" : ""
+                    !ghostMatches(ghost, columns)
+                      ? "ghost-name row-crossed-out"
+                      : "ghost-name"
                   }
                 >
                   {ghost.name}
