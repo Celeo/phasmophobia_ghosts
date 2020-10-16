@@ -37,8 +37,9 @@ export const App = (): React.ReactElement => {
         <tbody>
           {GHOSTS.map((ghost) => {
             return (
-              <tr key={ghost.name} title={ghost.description}>
+              <tr key={ghost.name}>
                 <td
+                  title={ghost.description}
                   className={
                     !ghostMatches(ghost, columns)
                       ? "ghost-name row-crossed-out"
