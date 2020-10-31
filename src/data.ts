@@ -172,7 +172,7 @@ export const GHOSTS: Array<Ghost> = [
   {
     name: "Oni",
     description:
-      "More active when around multiple people. Can rapidly move items.2",
+      "More active when around multiple people. Can rapidly move items.",
     evidence: {
       box: true,
       fingerprints: false,
